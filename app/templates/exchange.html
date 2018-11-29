@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}Flasky - Login{% endblock %}
+
+{% block page_content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-title">
+                <h4>兑换信息</h4>
+            </div>
+            <div class="card-body">
+                <div class="basic-form">
+                    <form method="post" action="/exchange?id={{ item['id'] }}">
+                        <div class='form-group'>
+                            {% if current_user.is_authenticated %}
+                            <p class="text-muted m-b-15 f-s-12">用户</p>
+                            <input name="username" type="text" value="{{ current_user.username }}" class="form-control input-default" required="required" readonly>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">商品</p>
+                            <input name="item" type="text" value="{{ item['name'] }}" class="form-control input-default" required="required" readonly>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">收件人</p>
+                            <input name="guest" type="text" class="form-control input-default" required="required">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">电话号码</p>
+                            <input name="phone" type="text" class="form-control input-default" required="required">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">收货地址</p>
+                            <input name="address" type="text" class="form-control input-default" required="required">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

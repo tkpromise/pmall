@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky - Page Not Found{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <div class="row justify-content-center">
+    <div class="col-lg-6">
+
+        <div class="card">
+            <div class="card-title">
+                <h4>New item</h4>
+
+            </div>
+            <div class="card-body">
+                <div class="basic-form">
+                    <form method="post" action="/create-item">
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">Item Name</p>
+                            <input name="name" type="text" class="form-control input-default" required="required">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">price</p>
+                            <input name="price" type="text" class="form-control input-default"
+                                   required="required">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">pointsRequired</p>
+                            <input name="pointsRequired" type="text" class="form-control input-default"
+                                   required="required">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted m-b-15 f-s-12">Site Url</p>
+                            <input name="img" type="text" class="form-control input-default" required="required">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

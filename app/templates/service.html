@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}Flasky - Login{% endblock %}
+
+{% block page_content %}
+<div class='page-header'>
+    <h1>Service</h1>
+</div>
+
+<table class="table">
+</table>
+
+<table class="table">
+      <caption>Optional table caption.</caption>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>item</th>
+          <th>guest</th>
+          <th>phone</th>
+          <th>address</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for exchange in exchanges %}
+        <tr>
+          <th scope="row">{{ exchange['id'] }}</th>
+          <td>{{ exchange['item'] }}</td>
+          <td>{{ exchange['guest'] }}</td>
+          <td>{{ exchange['phone'] }}</td>
+          <td>{{ exchange['address'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}
