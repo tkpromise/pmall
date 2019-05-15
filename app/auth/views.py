@@ -16,7 +16,6 @@ def login():
     if form.validate_on_submit():
         login = memberloginjson(form.username.data, form.password.data)
         user  = User.query.filter_by(username=form.username.data).first()
-        #if login and user == None:
         if login:
             if user == None:
                 mebid = getpersonmemberbymobile(form.username.data)

@@ -27,7 +27,7 @@ class User(UserMixin, db.Model):
         self.coupons = coupons
         self.memberType = '3B VIP'
         self.storedValue = 0
-        self.pub_date = datetime.utcnow()
+        self.pub_date = datetime.now()
 
     def __repr__(self):
         return '<username %r>' % (self.username)

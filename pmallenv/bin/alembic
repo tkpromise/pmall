@@ -1,4 +1,4 @@
-#!/home/gaara/pmall/pmallenv/bin/python3
+#!/home/ubuntu/pmall/pmall/pmallenv/bin/python3
 # EASY-INSTALL-ENTRY-SCRIPT: 'alembic==1.0.3','console_scripts','alembic'
 __requires__ = 'alembic==1.0.3'
 import re

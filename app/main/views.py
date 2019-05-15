@@ -3,6 +3,9 @@ from flask import render_template, session, redirect, url_for, request, flash
 from flask_login import login_required
 
 from .import main
+from .coupon import getcoupon 
+from .getpersonmemberbymobile import getpersonmemberbymobile
+from .getmemberpointsum import getmemberpointsum
 from .. import db
 from ..models import User, Item, Exchange
 
@@ -64,6 +67,27 @@ def exchange():
 def service():
     exchanges = Exchange.query.all()
     return render_template('service.html', exchanges=exchanges)
+
+@main.route('/query', methods=['GET', 'POST'])
+def query():
+    if request.method == 'POST':
+        mobile = request.form.get('mobile')
+        mebid = getpersonmemberbymobile(mobile)
+        if mebid != False:
+            point = getmemberpointsum(mebid)
+            coupon=getcoupon(mebid)
+            if coupon != False:
+                return render_template('coupon.html', coupon=coupon, mobile=mobile, point=point)
+            else:
+                flash('未查询到此用户的优惠信息')
+                return redirect(url_for('main.query'))
+        else:
+            flash('未查询到此用户的优惠信息')
+            return redirect(url_for('main.query'))
+    return render_template('query.html')
+
+
+        
 
 @main.route('/secret')
 @login_required

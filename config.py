@@ -4,7 +4,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Limit168@us-mysql/pmall'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Limit168@localhost/pmall'
 
     @staticmethod
     def init_app(app):
