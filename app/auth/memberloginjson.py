@@ -25,4 +25,4 @@ def memberloginjson(username, password):
         return True
 
 if __name__ == '__main__':
-    memberloginjson('18758831325', '1986825')
+    memberloginjson('18758831325', 'joy1986825')
